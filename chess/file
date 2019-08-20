@@ -1,0 +1,46 @@
+byebug) n
+1: current_pos = [7, 7]
+2: final = [[3, 3], [4, 4], [5, 5], [6, 6], [7, 7]]
+
+[65, 74] in /Users/aa/Desktop/Chess/slideable.rb
+   65:     current_pos = [current_pos[0] + dx, current_pos[1] + dy]
+   66:     until !board.valid_pos?(current_pos) 
+   67:       return final if board[pos].color == board[current_pos].color
+   68:       debugger
+   69:       final << current_pos 
+=> 70:       current_pos = [current_pos[0] + dx, current_pos[1] + dy]
+   71:       return final if board[pos].color == board[current_pos].color
+   72:     end
+   73:     final
+   74:   end
+(byebug) n
+1: current_pos = [8, 8]
+2: final = [[3, 3], [4, 4], [5, 5], [6, 6], [7, 7]]
+
+[66, 75] in /Users/aa/Desktop/Chess/slideable.rb
+   66:     until !board.valid_pos?(current_pos) 
+   67:       return final if board[pos].color == board[current_pos].color
+   68:       debugger
+   69:       final << current_pos 
+   70:       current_pos = [current_pos[0] + dx, current_pos[1] + dy]
+=> 71:       return final if board[pos].color == board[current_pos].color
+   72:     end
+   73:     final
+   74:   end
+   75: 
+(byebug) n
+1: current_pos = (undefined)
+2: final = (undefined)
+
+[385, 394] in /Users/aa/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/pry-0.12.2/lib/pry/pry_instance.rb
+   385:     exec_hook :before_eval, code, self
+   386: 
+   387:     result = current_binding.eval(code, Pry.eval_path, Pry.current_line)
+   388:     set_last_result(result, code)
+   389:   ensure
+=> 390:     update_input_history(code)
+   391:     exec_hook :after_eval, result, self
+   392:   end
+   393: 
+   394:   # Output the result or pass to an exception handler (if result is an exception).
+(byebug) 
