@@ -1,0 +1,41 @@
+Rails.application.routes.draw do
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :cats, except: :destroy
+  resources :cat_rental_requests, only: [:new, :create] do
+    member do
+      post :approve
+      post :deny
+    end
+  end
+
+  root to: redirect('/cats') # what does this do? 
+end
+
+
+look at screenshot
+
+
+If you are in application controller can you reference methods from the user model? Why are we able to do this in ApplicationController?
+
+
+Why don't we use instance var here? 
+def logout!
+    current_user.reset_session_token! # why isn't this the instance var
+    @current_user = nil 
+    session[:session_token] = nil 
+
+Why doesn't this need printing tag?
+
+    <label for="username">Username</label>
+    <input id="username" type="text" name="user[username]" value="">
+
+
+    How do we handle logout? Csrf attack on logging out? 
+
+    <% if self.logged_in? %>
+      <h1><%= 'Hello #{self.user_name}' %></h1>
+      <form action="<%= session_url %>" method="POST">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+        <input type="submit" value ="Log Out">
+      </form>
+    <% else %>

@@ -1,4 +1,5 @@
 class CatsController < ApplicationController
+  before_action :ensure_logged_in, only: [:new, :create, :edit, :destroy, :update]
   def index
     @cats = Cat.all
     render :index

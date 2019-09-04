@@ -8,5 +8,8 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: redirect('/cats')
+  root to: redirect('/cats') # what does this do? 
+
+  resources :users, only: [:new, :create]
+  resource :session, only: [:new, :create, :destroy]
 end
